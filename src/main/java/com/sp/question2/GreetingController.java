@@ -13,7 +13,9 @@ public class GreetingController {
     public String greeting(Model model) {
         LocalTime now = LocalTime.now();
         String name = "Sorada Prathan"; 
-        String message = "Welcome to COMP367";
+        String message = (now.isBefore(LocalTime.of(12, 0))) ?
+                "Good morning, " + name + ", Welcome to COMP367" :
+                "Good afternoon, " + name + ", Welcome to COMP367";
         model.addAttribute("message", message);
         return "greeting";
     }
